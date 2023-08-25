@@ -105,7 +105,45 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_ADLS_CSV_PROYECTO')]",
+			"name": "[concat(parameters('factoryName'), '/DS_CCR_TIME_TRACKER')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_fs_proyectoAngieUbaque",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_CCR": {
+						"type": "string",
+						"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+					}
+				},
+				"folder": {
+					"name": "File System"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Report_ReportTT",
+					"location": {
+						"type": "FileServerLocation",
+						"fileName": {
+							"value": "@dataset().NOMBRE_ARCHIVO_CCR",
+							"type": "Expression"
+						}
+					},
+					"firstRowAsHeader": true,
+					"nullValue": "''"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_fs_proyectoAngieUbaque')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_DATALAKE_CCR_TIME_TRACKER')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -121,7 +159,69 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "Bronze/file_system",
+						"folderPath": "Bronze",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_DATALAKE_NOMINA_MENSUAL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Bronze",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_DATALAKE_PROYECCION_MENSUAL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
 					"columnDelimiter": ",",
@@ -302,83 +402,14 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_CCR_TIME_TRACKER')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_fs_proyectoAngieUbaque",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"NOMBRE_ARCHIVO_CCR": {
-						"type": "string",
-						"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
-					}
-				},
-				"folder": {
-					"name": "File System"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Report_ReportTT",
-					"location": {
-						"type": "FileServerLocation",
-						"fileName": {
-							"value": "@dataset().NOMBRE_ARCHIVO_CCR",
-							"type": "Expression"
-						}
-					},
-					"firstRowAsHeader": true,
-					"nullValue": "''"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_fs_proyectoAngieUbaque')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_DATALAKE_NOMINA_MENSUAL')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_proyecto_Angie",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Azure Data Lake"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "Bronze",
-						"fileSystem": "datalake"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_Copydata_inputs_to_adls')]",
+			"name": "[concat(parameters('factoryName'), '/PL_Copydata_filesystem_to_bronze')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
 						"name": "FileSystem_to_datalake_ds_nomina",
-						"description": "copiar la info de un archivo de mi equipo al datalake storage gen 2",
+						"description": "copiar la info del archivo de nomina al datalake storage gen 2",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -424,7 +455,10 @@
 								"referenceName": "DS_NOMINA_MENSUAL",
 								"type": "DatasetReference",
 								"parameters": {
-									"NOMBRE_ARCHIVO_NOMINA": "CoE12_Nomina_YYYYMMDD.xlsx"
+									"NOMBRE_ARCHIVO_NOMINA": {
+										"value": "@pipeline().parameters.NOMBRE_ARCHIVO_NOMINA",
+										"type": "Expression"
+									}
 								}
 							}
 						],
@@ -435,18 +469,162 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "FileSystem_to_datalake_ds_proyeccion",
+						"description": "Copiar la info del archivo de proyeccion al datalake storage gen 2",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "FileServerReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_PROYECCION_MENSUAL",
+								"type": "DatasetReference",
+								"parameters": {
+									"NOMBRE_ARCHIVO_PROYECCION": {
+										"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "FileSystem_to_datalake_ds_CCR",
+						"description": "Copiar la info del archivo de ccr al datalake storage gen 2",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "FileServerReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_CCR_TIME_TRACKER",
+								"type": "DatasetReference",
+								"parameters": {
+									"NOMBRE_ARCHIVO_CCR": {
+										"value": "@pipeline().parameters.NOMBRE_ARCHIVO_CCR",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_DATALAKE_CCR_TIME_TRACKER",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_NOMINA": {
+						"type": "string",
+						"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+					},
+					"NOMBRE_ARCHIVO_PROYECCION": {
+						"type": "string",
+						"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+					},
+					"NOMBRE_ARCHIVO_CCR": {
+						"type": "string",
+						"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+					}
+				},
 				"annotations": [],
 				"lastPublishTime": "2023-08-21T18:17:53Z"
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_MENSUAL')]",
 				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_NOMINA_MENSUAL')]",
-				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_MENSUAL')]"
+				"[concat(variables('factoryId'), '/datasets/DS_PROYECCION_MENSUAL')]",
+				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_PROYECCION_MENSUAL')]",
+				"[concat(variables('factoryId'), '/datasets/DS_CCR_TIME_TRACKER')]",
+				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_CCR_TIME_TRACKER')]"
 			]
 		}
 	]
