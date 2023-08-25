@@ -1,0 +1,33 @@
+{
+	"name": "DS_CCR_TIME_TRACKER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_fs_proyectoAngieUbaque",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"NOMBRE_ARCHIVO_CCR": {
+				"type": "string",
+				"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+			}
+		},
+		"folder": {
+			"name": "File System"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Report_ReportTT",
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": {
+					"value": "@dataset().NOMBRE_ARCHIVO_CCR",
+					"type": "Expression"
+				}
+			},
+			"firstRowAsHeader": true,
+			"nullValue": "''"
+		},
+		"schema": []
+	}
+}
