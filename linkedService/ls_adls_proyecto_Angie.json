@@ -1,12 +1,19 @@
 {
 	"name": "ls_adls_proyecto_Angie",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://adlsangieubaque.dfs.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ4QzVDNDZCLUMyMUMtNDg4MC1BMEQwLTk1RDMzMDRDOTRDNF9mY2NhZWNkZS05MDc4LTRkZTgtYWFiOC01MzE3ZjUxOWE2NjQiDQp9"
+			"accountKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AKVFile",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "KV-adls-angie-ubaque"
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
