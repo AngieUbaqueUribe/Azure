@@ -20,7 +20,10 @@
 			"sheetName": "Col",
 			"location": {
 				"type": "FileServerLocation",
-				"fileName": "CoE12_Nomina_20230824.xlsx"
+				"fileName": {
+					"value": "@dataset().NOMBRE_ARCHIVO_NOMINA",
+					"type": "Expression"
+				}
 			},
 			"firstRowAsHeader": true,
 			"nullValue": "''"
