@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "WS-ADF-PROYECTO-FINAL-ANGIE-UBAQUE"
+		},
+		"AKVFile_properties_typeProperties_baseUrl": {
+			"value": "https://KV-FILE-ANGIE.vault.azure.net/"
+		},
+		"ls_adls_proyecto_Angie_properties_typeProperties_url": {
+			"value": "https://adlsangieubaque.dfs.core.windows.net/"
+		},
+		"ls_fs_proyectoAngieUbaque_properties_typeProperties_host": {
+			"value": "C:\\data_adf"
+		},
+		"ls_fs_proyectoAngieUbaque_properties_typeProperties_userId": {
+			"value": "Angie"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
