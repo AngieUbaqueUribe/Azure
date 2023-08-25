@@ -63,12 +63,78 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "FileSystem_to_datalake_ds_proyeccion",
+				"description": "Copiar la info del archivo de proyeccion al datalake storage gen 2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_PROYECCION_MENSUAL",
+						"type": "DatasetReference",
+						"parameters": {
+							"NOMBRE_ARCHIVO_PROYECCION": {
+								"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"parameters": {
 			"NOMBRE_ARCHIVO_NOMINA": {
 				"type": "string",
 				"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+			},
+			"NOMBRE_ARCHIVO_PROYECCION": {
+				"type": "string",
+				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
 			}
 		},
 		"annotations": [],

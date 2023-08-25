@@ -1,0 +1,26 @@
+{
+	"name": "DS_DATALAKE_PROYECCION_MENSUAL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_proyecto_Angie",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Azure Data Lake"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Bronze",
+				"fileSystem": "datalake"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
