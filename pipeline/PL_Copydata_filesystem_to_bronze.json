@@ -125,6 +125,68 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "FileSystem_to_datalake_ds_CCR",
+				"description": "Copiar la info del archivo de ccr al datalake storage gen 2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_CCR_TIME_TRACKER",
+						"type": "DatasetReference",
+						"parameters": {
+							"NOMBRE_ARCHIVO_CCR": {
+								"value": "@pipeline().parameters.NOMBRE_ARCHIVO_CCR",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_DATALAKE_CCR_TIME_TRACKER",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"parameters": {
@@ -135,6 +197,10 @@
 			"NOMBRE_ARCHIVO_PROYECCION": {
 				"type": "string",
 				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+			},
+			"NOMBRE_ARCHIVO_CCR": {
+				"type": "string",
+				"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
 			}
 		},
 		"annotations": [],
