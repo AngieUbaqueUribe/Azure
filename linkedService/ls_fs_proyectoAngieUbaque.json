@@ -1,17 +1,24 @@
 {
 	"name": "ls_fs_proyectoAngieUbaque",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "FileServer",
 		"typeProperties": {
 			"host": "C:\\data_adf",
 			"userId": "Angie",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyM2I1NzIzOC0zMjY2LTQ4YzYtYjBjYS1jNDRjMzU2MTJmZjUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AKVFile",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "KV-LOCAL-SERVER-AW"
+			}
 		},
 		"connectVia": {
 			"referenceName": "INTEGRATIONRUNTIME-ANGIE-UBAQUE",
 			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
