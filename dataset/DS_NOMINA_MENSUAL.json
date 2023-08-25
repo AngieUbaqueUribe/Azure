@@ -17,15 +17,13 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "CoE12 - CoE Data Analytics-Col",
+			"sheetName": "Col",
 			"location": {
 				"type": "FileServerLocation",
-				"fileName": {
-					"value": "@dataset().NOMBRE_ARCHIVO_NOMINA",
-					"type": "Expression"
-				}
+				"fileName": "CoE12_Nomina_20230824.xlsx"
 			},
-			"firstRowAsHeader": true
+			"firstRowAsHeader": true,
+			"nullValue": "''"
 		},
 		"schema": []
 	}
