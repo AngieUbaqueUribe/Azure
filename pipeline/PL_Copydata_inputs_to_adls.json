@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "FileSystem_to_datalake_ds_nomina",
-				"description": "copiar la info de un archivo de mi equipo al datalake storage gen 2",
+				"description": "copiar la info del archivo de nomina al datalake storage gen 2",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -50,7 +50,10 @@
 						"referenceName": "DS_NOMINA_MENSUAL",
 						"type": "DatasetReference",
 						"parameters": {
-							"NOMBRE_ARCHIVO_NOMINA": "CoE12_Nomina_YYYYMMDD.xlsx"
+							"NOMBRE_ARCHIVO_NOMINA": {
+								"value": "@pipeline().parameters.NOMBRE_ARCHIVO_NOMINA",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -62,6 +65,12 @@
 				]
 			}
 		],
+		"parameters": {
+			"NOMBRE_ARCHIVO_NOMINA": {
+				"type": "string",
+				"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-08-21T18:17:53Z"
 	},
