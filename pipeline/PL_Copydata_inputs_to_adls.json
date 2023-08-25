@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "FileSystem_to_datalake",
+				"name": "FileSystem_to_datalake_ds_nomina",
 				"description": "copiar la info de un archivo de mi equipo al datalake storage gen 2",
 				"type": "Copy",
 				"dependsOn": [],
@@ -17,14 +17,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "ExcelSource",
 						"storeSettings": {
 							"type": "FileServerReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -38,11 +35,28 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
+				"inputs": [
+					{
+						"referenceName": "DS_NOMINA_MENSUAL",
+						"type": "DatasetReference",
+						"parameters": {
+							"NOMBRE_ARCHIVO_NOMINA": "CoE12_Nomina_YYYYMMDD.xlsx"
+						}
+					}
+				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_CSV_PROYECTO",
+						"referenceName": "DS_DATALAKE_NOMINA_MENSUAL",
 						"type": "DatasetReference"
 					}
 				]
