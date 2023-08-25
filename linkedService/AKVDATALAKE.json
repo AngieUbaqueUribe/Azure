@@ -1,0 +1,10 @@
+{
+	"name": "AKVDATALAKE",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://KV-FILE-ANGIE.vault.azure.net/"
+		}
+	}
+}
