@@ -1,5 +1,5 @@
 {
-	"name": "PL_Copydata_inputs_to_adls",
+	"name": "PL_Copydata_filesystem_to_bronze",
 	"properties": {
 		"activities": [
 			{
