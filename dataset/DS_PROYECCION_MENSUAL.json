@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"NOMBRE_ARCHIVO": {
+			"NOMBRE_ARCHIVO_PROYECCION": {
 				"type": "string",
 				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
 			}
@@ -17,9 +17,13 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": "Todos",
 			"location": {
 				"type": "FileServerLocation",
-				"fileName": "Proyeccion_20230824.xlsx"
+				"fileName": {
+					"value": "@dataset().NOMBRE_ARCHIVO_PROYECCION",
+					"type": "Expression"
+				}
 			},
 			"firstRowAsHeader": true
 		},
