@@ -1,0 +1,11 @@
+{
+	"name": "AKVFile",
+	"properties": {
+		"description": "mi primer key vault",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://KV-FILE-ANGIE.vault.azure.net/"
+		}
+	}
+}
