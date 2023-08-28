@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "Report_UtilizacionTimeTracker_20230824.xlsx.txt",
 				"folderPath": "Bronze",
 				"fileSystem": "datalake"
 			},
