@@ -9,15 +9,111 @@
 						"referenceName": "DS_DATALAKE_NOMINA_MENSUAL",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "SOURCENOMINA"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_DATALAKE_CCR_TIME_TRACKER",
+						"type": "DatasetReference"
+					},
+					"name": "SOURCECCR"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "JNNOMINAXCCR"
+				},
+				{
+					"name": "CALCULARSUELDO"
+				},
+				{
+					"name": "CALCULARNOMINAPROYECTO"
+				}
+			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          Empresa as string,",
+				"          {Nombre Empleado} as string,",
+				"          {User Name} as string,",
+				"          Iniciales as string,",
+				"          {Número Identificación} as long,",
+				"          {Tipo Identificacion} as string,",
+				"          Edad as short,",
+				"          Genero as string,",
+				"          {Tipo Contrato} as string,",
+				"          {Número Contrato} as short,",
+				"          Cargo as string,",
+				"          {Fecha Ingreso} as date,",
+				"          {Fecha Inicio Contrato} as date,",
+				"          {Fecha Terminación Contrato} as string,",
+				"          {COE Usuario} as string,",
+				"          {COE Descripción} as string,",
+				"          {Vp Regional} as string,",
+				"          {Ciudad Trabajo} as string,",
+				"          {Nivel Organizacional} as string,",
+				"          Seniority as string,",
+				"          {Tipo de remuneración} as string,",
+				"          {Salario Básico} as string,",
+				"          {Auxilio de Transporte} as string,",
+				"          {Subsidio Transporte} as string,",
+				"          {Bonos Sodexo} as integer,",
+				"          {Auxilio de Vivienda} as short,",
+				"          {Total Remuneración} as integer,",
+				"          CTC as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> SOURCENOMINA",
+				"source(output(",
+				"          Empresa as string,",
+				"          {Nombre Empleado} as string,",
+				"          {User Name} as string,",
+				"          Iniciales as string,",
+				"          {Número Identificación} as string,",
+				"          {Tipo Identificacion} as string,",
+				"          Edad as string,",
+				"          Genero as string,",
+				"          {Tipo Contrato} as string,",
+				"          {Número Contrato} as string,",
+				"          Cargo as string,",
+				"          {Fecha Ingreso} as string,",
+				"          {Fecha Inicio Contrato} as string,",
+				"          {Fecha Terminación Contrato} as string,",
+				"          {COE Usuario} as string,",
+				"          {COE Descripción} as string,",
+				"          {Vp Regional} as string,",
+				"          {Ciudad Trabajo} as string,",
+				"          {Nivel Organizacional} as string,",
+				"          Seniority as string,",
+				"          {Tipo de remuneración} as string,",
+				"          {Salario Básico} as string,",
+				"          {Auxilio de Transporte} as string,",
+				"          {Subsidio Transporte} as string,",
+				"          {Bonos Sodexo} as string,",
+				"          {Auxilio de Vivienda} as string,",
+				"          {Total Remuneración} as string,",
+				"          CTC as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SOURCECCR",
+				"SOURCENOMINA, SOURCECCR join(SOURCENOMINA@Iniciales == SOURCECCR@Iniciales,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> JNNOMINAXCCR",
+				"JNNOMINAXCCR derive(SUELDO_CALCULADO = (SOURCENOMINA@CTC*{Utilización})/100) ~> CALCULARSUELDO",
+				"CALCULARSUELDO aggregate(groupBy(Proyecto),",
+				"     NOMINA = sum(SUELDO_CALCULADO)) ~> CALCULARNOMINAPROYECTO",
+				"CALCULARSUELDO sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
