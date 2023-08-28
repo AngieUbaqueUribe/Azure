@@ -8,7 +8,7 @@
 		"parameters": {
 			"NOMBRE_ARCHIVO_PROYECCION": {
 				"type": "string",
-				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+				"defaultValue": "Proyeccion.xlsx"
 			}
 		},
 		"folder": {

@@ -8,7 +8,7 @@
 		"parameters": {
 			"NOMBRE_ARCHIVO_NOMINA": {
 				"type": "string",
-				"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+				"defaultValue": "CoE12_Nomina.xlsx"
 			}
 		},
 		"folder": {
