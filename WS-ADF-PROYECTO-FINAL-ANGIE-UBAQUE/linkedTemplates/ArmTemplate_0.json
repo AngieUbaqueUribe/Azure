@@ -215,6 +215,12 @@
 					"referenceName": "ls_adls_proyecto_Angie",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_PROYECCION": {
+						"type": "string",
+						"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+					}
+				},
 				"folder": {
 					"name": "Azure Data Lake Bronze"
 				},
@@ -223,6 +229,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().NOMBRE_ARCHIVO_PROYECCION",
+							"type": "Expression"
+						},
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -463,6 +473,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_fs_proyectoAngieUbaque')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_PROYECCION_VALIDADA')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake Silver"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Silver",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
 			]
 		},
 		{
@@ -1706,7 +1747,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"name": "[concat(parameters('factoryName'), '/JOIN_NOMINA')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1830,18 +1871,22 @@
 						"     NOMINA = sum(SUELDO_CALCULADO)) ~> CALCULARNOMINAPROYECTO",
 						"CALCULARSUELDO sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['Nomina_Personal'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> NOMINAPERSONAL",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> NOMINAPERSONAL",
 						"CALCULARNOMINAPROYECTO sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['Nomina_Proyecto'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> NOMINAPROYECTO"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> NOMINAPROYECTO"
 					]
 				}
 			},
@@ -1850,6 +1895,128 @@
 				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_CCR_TIME_TRACKER')]",
 				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_PERSONAL')]",
 				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_PROYECTO')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_BRONZE_TO_SILVER')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DATA_FLOW_RULES",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "JOIN_NOMINA",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SOURCENOMINA": {},
+									"SOURCECCR": {},
+									"NOMINAPERSONAL": {},
+									"NOMINAPROYECTO": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
+						"name": "COPY_PROYECCION_TO_SILVER",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
+								"type": "DatasetReference",
+								"parameters": {
+									"NOMBRE_ARCHIVO_PROYECCION": {
+										"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_PROYECCION_VALIDADA",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_PROYECCION": {
+						"type": "string",
+						"defaultValue": "Proyeccion_YYYYMMDD.xlsx.txt"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/JOIN_NOMINA')]",
+				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_PROYECCION_MENSUAL')]",
+				"[concat(variables('factoryId'), '/datasets/DS_PROYECCION_VALIDADA')]"
 			]
 		}
 	]
