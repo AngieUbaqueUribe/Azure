@@ -824,7 +824,10 @@
 						"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
 						"type": "DatasetReference",
 						"parameters": {
-							"NOMBRE_ARCHIVO_PROYECCION": "Proyeccion_YYYYMMDD.xlsx"
+							"NOMBRE_ARCHIVO_PROYECCION": {
+								"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+								"type": "Expression"
+							}
 						}
 					}
 				]
@@ -1209,15 +1212,15 @@
 		"parameters": {
 			"NOMBRE_ARCHIVO_NOMINA": {
 				"type": "string",
-				"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+				"defaultValue": "CoE12_Nomina.xlsx"
 			},
 			"NOMBRE_ARCHIVO_PROYECCION": {
 				"type": "string",
-				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+				"defaultValue": "Proyeccion.xlsx"
 			},
 			"NOMBRE_ARCHIVO_CCR": {
 				"type": "string",
-				"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+				"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
 			}
 		},
 		"annotations": [],
