@@ -16,11 +16,18 @@
 						"referenceName": "DS_NOMINA_PROYECTO",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "SOURCENOMINAPROYECTO"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "join1"
+				},
+				{
+					"name": "Calcularrentabilidad"
+				}
+			],
 			"scriptLines": [
 				"parameters{",
 				"     NOMBRE_DS_PROYECCION as string",
@@ -60,9 +67,19 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SOURCEPROYECCIONVALIDADA",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          Proyecto as string,",
+				"          NOMINA as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> SOURCENOMINAPROYECTO",
+				"SOURCEPROYECCIONVALIDADA, SOURCENOMINAPROYECTO join({Project Name} == Proyecto,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
+				"join1 derive(Rentabilidad = (Aug-NOMINA)/Aug) ~> Calcularrentabilidad"
 			]
 		}
 	}
