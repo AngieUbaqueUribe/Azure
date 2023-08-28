@@ -1,0 +1,89 @@
+{
+	"name": "PL_MAESTRO",
+	"properties": {
+		"activities": [
+			{
+				"name": "PL_BRONZE",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_COPYDATA_FILESYSTEM_TO_BRONZE",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"NOMBRE_ARCHIVO_NOMINA": {
+							"value": "@pipeline().parameters.NOMBRE_ARCHIVO_NOMINA",
+							"type": "Expression"
+						},
+						"NOMBRE_ARCHIVO_PROYECCION": {
+							"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+							"type": "Expression"
+						},
+						"NOMBRE_ARCHIVO_CCR": {
+							"value": "@pipeline().parameters.NOMBRE_ARCHIVO_CCR",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "PL_SILVER",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "PL_BRONZE",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_BRONZE_TO_SILVER",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "PL_GOLD",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "PL_SILVER",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_SILVER_TO_GOLD_RENTABILIDAD",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"parameters": {
+			"NOMBRE_ARCHIVO_NOMINA": {
+				"type": "string",
+				"defaultValue": "CoE12_Nomina.xlsx"
+			},
+			"NOMBRE_ARCHIVO_PROYECCION": {
+				"type": "string",
+				"defaultValue": "CoE12_Nomina.xlsx"
+			},
+			"NOMBRE_ARCHIVO_CCR": {
+				"type": "string",
+				"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
+			}
+		},
+		"annotations": []
+	}
+}
