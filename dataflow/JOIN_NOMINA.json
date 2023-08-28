@@ -128,11 +128,13 @@
 				"     skipDuplicateMapOutputs: true) ~> NOMINAPERSONAL",
 				"CALCULARNOMINAPROYECTO sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     partitionFileNames:['Nomina_Proyecto'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> NOMINAPROYECTO"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> NOMINAPROYECTO"
 			]
 		}
 	}
