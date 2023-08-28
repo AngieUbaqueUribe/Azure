@@ -29,14 +29,14 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/PL_Copydata_filesystem_to_bronze')]",
+			"name": "[concat(parameters('factoryName'), '/PL_COPYDATA_FILESYSTEM_TO_BRONZE')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "FileSystem_to_datalake_ds_nomina",
-						"description": "copiar la info del archivo de nomina al datalake storage gen 2",
+						"name": "FILESYSTEM_TO_DATALAKE_NOMINA",
+						"description": "Copiar la información del archivo de nomina al datalake capa bronze",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -70,6 +70,344 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Empresa",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Empresa",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Nombre Empleado",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Nombre Empleado",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "User Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "User Name",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Iniciales",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Iniciales",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Número Identificación",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Número Identificación",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Tipo Identificacion",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tipo Identificacion",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Edad",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Edad",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Genero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Genero",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Tipo Contrato",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tipo Contrato",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Número Contrato",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Número Contrato",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cargo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cargo",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fecha Ingreso",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fecha Ingreso",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fecha Inicio Contrato",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fecha Inicio Contrato",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fecha Terminación Contrato",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fecha Terminación Contrato",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COE Usuario",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "COE Usuario",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COE Descripción",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "COE Descripción",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Vp Regional",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Vp Regional",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Ciudad Trabajo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Ciudad Trabajo",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Nivel Organizacional",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Nivel Organizacional",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Seniority",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Seniority",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Tipo de remuneración",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tipo de remuneración",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Salario Básico",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Salario Básico",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Auxilio de Transporte",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Auxilio de Transporte",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Subsidio Transporte",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Subsidio Transporte",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Bonos Sodexo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Bonos Sodexo",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Auxilio de Vivienda",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Auxilio de Vivienda",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Total Remuneración",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Total Remuneración",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CTC",
+											"type": "Double",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CTC",
+											"type": "String",
+											"physicalType": "String"
+										}
+									}
+								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,
@@ -98,8 +436,8 @@
 						]
 					},
 					{
-						"name": "FileSystem_to_datalake_ds_proyeccion",
-						"description": "Copiar la info del archivo de proyeccion al datalake storage gen 2",
+						"name": "FILESYSTEM_TO_DATALAKE_PROYECCION",
+						"description": "Copiar la información del archivo de proyección al datalake capa bronze",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -133,6 +471,368 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "No.",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "No.",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Pais Cliente",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Pais Cliente",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Pais Facturación",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Pais Facturación",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Area",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Area",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cliente",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cliente",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RMCode",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RMCode",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PMOCode",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PMOCode",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POU",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "POU",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cost Center",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cost Center",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Project Name",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Description",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Project Description",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Estado",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Estado",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rent Base Comercial",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rent Base Comercial",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rent Base Delivery",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rent Base Delivery",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rentabilidad",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rentabilidad",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jan",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jan",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Feb",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Feb",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Mar",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Mar",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Apr",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Apr",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "May",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "May",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jun",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jun",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jul",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jul",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Aug",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Aug",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Sep",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Sep",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Oct",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Oct",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Nov",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Nov",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Dic",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Dic",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Total H",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Total H",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Comentario",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Comentario",
+											"type": "String",
+											"physicalType": "String"
+										}
+									}
+								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,
@@ -161,8 +861,8 @@
 						]
 					},
 					{
-						"name": "FileSystem_to_datalake_ds_CCR",
-						"description": "Copiar la info del archivo de ccr al datalake storage gen 2",
+						"name": "FILESYSTEM_TO_DATALAKE_CCR",
+						"description": "Copiar la información del archivo de ccr al datalake capa bronze",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -196,6 +896,320 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "S/N",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "S/N",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DM",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DM",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PMO",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PMO",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Iniciales",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Iniciales",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cedula",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cedula",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Nombre Usuario",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Nombre Usuario",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Centro Costo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Centro Costo",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Descripción  Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Descripción  Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Utilización",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Utilización",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Días Trabajados",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Días Trabajados",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CH/NCH",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CH/NCH",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM1: Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM1: Proyecto",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM2: Centro de Costo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM2: Centro de Costo",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM3: Codigo  -LineaNegocio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM3: Codigo  -LineaNegocio",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM4: Codigo - Cliente",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM4: Codigo - Cliente",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM5: Codigo - Pais",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM5: Codigo - Pais",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DIM6: Producto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DIM6: Producto",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Budgeting Model",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Budgeting Model",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Metodología",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Metodología",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Línea Tecnológica",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Línea Tecnológica",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cloud",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cloud",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Tipo de Mercado",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tipo de Mercado",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Capacidades Requeridas",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Capacidades Requeridas",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Compañia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Compañia",
+											"type": "String",
+											"physicalType": "String"
+										}
+									}
+								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,
@@ -302,13 +1316,14 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Azure Data Lake"
+					"name": "Azure Data Lake Bronze"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "Report_UtilizacionTimeTracker_20230824.xlsx.txt",
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -333,13 +1348,14 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Azure Data Lake"
+					"name": "Azure Data Lake Bronze"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "CoE12_Nomina_20230824.xlsx.txt",
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -364,7 +1380,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Azure Data Lake"
+					"name": "Azure Data Lake Bronze"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -421,6 +1437,68 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_fs_proyectoAngieUbaque')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_NOMINA_PERSONAL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake Silver"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Silver",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_NOMINA_PROYECTO')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake Silver"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Silver",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
 			]
 		},
 		{
@@ -626,6 +1704,153 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "DS_DATALAKE_NOMINA_MENSUAL",
+								"type": "DatasetReference"
+							},
+							"name": "SOURCENOMINA"
+						},
+						{
+							"dataset": {
+								"referenceName": "DS_DATALAKE_CCR_TIME_TRACKER",
+								"type": "DatasetReference"
+							},
+							"name": "SOURCECCR"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "DS_NOMINA_PERSONAL",
+								"type": "DatasetReference"
+							},
+							"name": "NOMINAPERSONAL"
+						},
+						{
+							"dataset": {
+								"referenceName": "DS_NOMINA_PROYECTO",
+								"type": "DatasetReference"
+							},
+							"name": "NOMINAPROYECTO"
+						}
+					],
+					"transformations": [
+						{
+							"name": "JNNOMINAXCCR"
+						},
+						{
+							"name": "CALCULARSUELDO"
+						},
+						{
+							"name": "CALCULARNOMINAPROYECTO"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          Empresa as string,",
+						"          {Nombre Empleado} as string,",
+						"          {User Name} as string,",
+						"          Iniciales as string,",
+						"          {Número Identificación} as long,",
+						"          {Tipo Identificacion} as string,",
+						"          Edad as short,",
+						"          Genero as string,",
+						"          {Tipo Contrato} as string,",
+						"          {Número Contrato} as short,",
+						"          Cargo as string,",
+						"          {Fecha Ingreso} as date,",
+						"          {Fecha Inicio Contrato} as date,",
+						"          {Fecha Terminación Contrato} as string,",
+						"          {COE Usuario} as string,",
+						"          {COE Descripción} as string,",
+						"          {Vp Regional} as string,",
+						"          {Ciudad Trabajo} as string,",
+						"          {Nivel Organizacional} as string,",
+						"          Seniority as string,",
+						"          {Tipo de remuneración} as string,",
+						"          {Salario Básico} as string,",
+						"          {Auxilio de Transporte} as string,",
+						"          {Subsidio Transporte} as string,",
+						"          {Bonos Sodexo} as integer,",
+						"          {Auxilio de Vivienda} as short,",
+						"          {Total Remuneración} as integer,",
+						"          CTC as decimal(10,0)",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SOURCENOMINA",
+						"source(output(",
+						"          {S/N} as short,",
+						"          OPR as string,",
+						"          DM as string,",
+						"          PMO as string,",
+						"          Iniciales as string,",
+						"          Cedula as string,",
+						"          {Nombre Usuario} as string,",
+						"          {Centro Costo} as string,",
+						"          Proyecto as string,",
+						"          {Descripción  Proyecto} as string,",
+						"          {Utilización} as integer,",
+						"          {Días Trabajados} as string,",
+						"          {CH/NCH} as string,",
+						"          {DIM1: Proyecto} as string,",
+						"          {DIM2: Centro de Costo} as string,",
+						"          {DIM3: Codigo  -LineaNegocio} as string,",
+						"          {DIM4: Codigo - Cliente} as string,",
+						"          {DIM5: Codigo - Pais} as string,",
+						"          {DIM6: Producto} as string,",
+						"          {Budgeting Model} as string,",
+						"          {Metodología} as string,",
+						"          {Línea Tecnológica} as string,",
+						"          Cloud as string,",
+						"          {Tipo de Mercado} as string,",
+						"          {Capacidades Requeridas} as string,",
+						"          {Compañia} as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SOURCECCR",
+						"SOURCENOMINA, SOURCECCR join(SOURCENOMINA@Iniciales == SOURCECCR@Iniciales,",
+						"     joinType:'inner',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> JNNOMINAXCCR",
+						"JNNOMINAXCCR derive(SUELDO_CALCULADO = (CTC*{Utilización})/100) ~> CALCULARSUELDO",
+						"CALCULARSUELDO aggregate(groupBy(Proyecto),",
+						"     NOMINA = sum(SUELDO_CALCULADO)) ~> CALCULARNOMINAPROYECTO",
+						"CALCULARSUELDO sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> NOMINAPERSONAL",
+						"CALCULARNOMINAPROYECTO sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> NOMINAPROYECTO"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_NOMINA_MENSUAL')]",
+				"[concat(variables('factoryId'), '/datasets/DS_DATALAKE_CCR_TIME_TRACKER')]",
+				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_PERSONAL')]",
+				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_PROYECTO')]"
+			]
 		}
 	]
 }
