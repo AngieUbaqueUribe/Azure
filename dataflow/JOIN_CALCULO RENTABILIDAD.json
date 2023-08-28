@@ -87,7 +87,7 @@
 				"join1 derive(Rentabilidad = ((Aug-NOMINA)/Aug)*100) ~> Calcularrentabilidad",
 				"Calcularrentabilidad sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['Rentabilidad_Proyectos'],",
+				"     partitionFileNames:['Rentabilidad_Proyectos.csv'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
