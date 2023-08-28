@@ -84,7 +84,7 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1",
-				"join1 derive(Rentabilidad = ((Aug-NOMINA)/Aug)*100) ~> Calcularrentabilidad",
+				"join1 derive(Rentabilidad = toDecimal(((Aug-NOMINA)/Aug)*100, 10, 2)) ~> Calcularrentabilidad",
 				"Calcularrentabilidad sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['Rentabilidad_Proyectos.csv'],",
