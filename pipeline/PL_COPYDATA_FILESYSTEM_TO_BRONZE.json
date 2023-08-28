@@ -1,10 +1,10 @@
 {
-	"name": "PL_Copydata_filesystem_to_bronze",
+	"name": "PL_COPYDATA_FILESYSTEM_TO_BRONZE",
 	"properties": {
 		"activities": [
 			{
-				"name": "FileSystem_to_datalake_ds_nomina",
-				"description": "copiar la info del archivo de nomina al datalake storage gen 2",
+				"name": "FILESYSTEM_TO_DATALAKE_NOMINA",
+				"description": "Copiar la información del archivo de nomina al datalake capa bronze",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -65,8 +65,8 @@
 				]
 			},
 			{
-				"name": "FileSystem_to_datalake_ds_proyeccion",
-				"description": "Copiar la info del archivo de proyeccion al datalake storage gen 2",
+				"name": "FILESYSTEM_TO_DATALAKE_PROYECCION",
+				"description": "Copiar la información del archivo de proyección al datalake capa bronze",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -127,8 +127,8 @@
 				]
 			},
 			{
-				"name": "FileSystem_to_datalake_ds_CCR",
-				"description": "Copiar la info del archivo de ccr al datalake storage gen 2",
+				"name": "FILESYSTEM_TO_DATALAKE_CCR",
+				"description": "Copiar la información del archivo de ccr al datalake capa bronze",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
