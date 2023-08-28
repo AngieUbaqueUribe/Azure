@@ -5,6 +5,12 @@
 			"referenceName": "ls_adls_proyecto_Angie",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"NOMBRE_DS_PROYECCION": {
+				"type": "string",
+				"defaultValue": "Proyeccion_YYYYMMDD.xlsx.txt"
+			}
+		},
 		"folder": {
 			"name": "Azure Data Lake Silver"
 		},
@@ -13,6 +19,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().NOMBRE_DS_PROYECCION",
+					"type": "Expression"
+				},
 				"folderPath": "Silver",
 				"fileSystem": "datalake"
 			},
