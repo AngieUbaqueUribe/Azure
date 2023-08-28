@@ -10,11 +10,25 @@
 						"type": "DatasetReference"
 					},
 					"name": "SOURCENOMINA"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_DATALAKE_CCR_TIME_TRACKER",
+						"type": "DatasetReference"
+					},
+					"name": "SOURCECCR"
 				}
 			],
 			"sinks": [
 				{
-					"name": "sink1"
+					"dataset": {
+						"referenceName": "DS_NOMINA_PERSONAL",
+						"type": "DatasetReference"
+					},
+					"name": "NOMINAPERSONAL"
+				},
+				{
+					"name": "NOMINAPROYECTO"
 				}
 			],
 			"transformations": [
@@ -57,23 +71,61 @@
 				"          {Bonos Sodexo} as integer,",
 				"          {Auxilio de Vivienda} as short,",
 				"          {Total Remuneración} as integer,",
-				"          CTC as integer",
+				"          CTC as decimal(10,0)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SOURCENOMINA",
-				"SOURCENOMINA join(SOURCENOMINA@Iniciales == SOURCECCR@Iniciales,",
+				"source(output(",
+				"          {S/N} as short,",
+				"          OPR as string,",
+				"          DM as string,",
+				"          PMO as string,",
+				"          Iniciales as string,",
+				"          Cedula as string,",
+				"          {Nombre Usuario} as string,",
+				"          {Centro Costo} as string,",
+				"          Proyecto as string,",
+				"          {Descripción  Proyecto} as string,",
+				"          {Utilización} as integer,",
+				"          {Días Trabajados} as string,",
+				"          {CH/NCH} as string,",
+				"          {DIM1: Proyecto} as string,",
+				"          {DIM2: Centro de Costo} as string,",
+				"          {DIM3: Codigo  -LineaNegocio} as string,",
+				"          {DIM4: Codigo - Cliente} as string,",
+				"          {DIM5: Codigo - Pais} as string,",
+				"          {DIM6: Producto} as string,",
+				"          {Budgeting Model} as string,",
+				"          {Metodología} as string,",
+				"          {Línea Tecnológica} as string,",
+				"          Cloud as string,",
+				"          {Tipo de Mercado} as string,",
+				"          {Capacidades Requeridas} as string,",
+				"          {Compañia} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SOURCECCR",
+				"SOURCENOMINA, SOURCECCR join(SOURCENOMINA@Iniciales == SOURCECCR@Iniciales,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JNNOMINAXCCR",
-				"JNNOMINAXCCR derive(SUELDO_CALCULADO = (SOURCENOMINA@CTC*{Utilización})/100) ~> CALCULARSUELDO",
+				"JNNOMINAXCCR derive(SUELDO_CALCULADO = (CTC*{Utilización})/100) ~> CALCULARSUELDO",
 				"CALCULARSUELDO aggregate(groupBy(Proyecto),",
 				"     NOMINA = sum(SUELDO_CALCULADO)) ~> CALCULARNOMINAPROYECTO",
 				"CALCULARSUELDO sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> NOMINAPERSONAL",
+				"CALCULARNOMINAPROYECTO sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> NOMINAPROYECTO"
 			]
 		}
 	}
