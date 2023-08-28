@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "Azure Data Lake"
+			"name": "Azure Data Lake Bronze"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
