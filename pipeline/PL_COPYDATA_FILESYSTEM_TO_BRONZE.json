@@ -38,6 +38,344 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Empresa",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Empresa",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nombre Empleado",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nombre Empleado",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "User Name\n",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "User Name\n",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Iniciales",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Iniciales",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Número Identificación",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Número Identificación",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Tipo Identificacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tipo Identificacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Edad",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Edad",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Genero",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Genero",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Tipo Contrato",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tipo Contrato",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Número Contrato",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Número Contrato",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cargo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cargo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Fecha Ingreso",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fecha Ingreso",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Fecha Inicio Contrato",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fecha Inicio Contrato",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Fecha Terminación Contrato",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fecha Terminación Contrato",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COE Usuario",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COE Usuario",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COE Descripción",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COE Descripción",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Vp Regional",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Vp Regional",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Ciudad Trabajo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ciudad Trabajo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nivel Organizacional",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nivel Organizacional",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Seniority",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Seniority",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Tipo de remuneración",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tipo de remuneración",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Salario Básico",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Salario Básico",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Auxilio de Transporte",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Auxilio de Transporte",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Subsidio Transporte",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subsidio Transporte",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Bonos Sodexo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Bonos Sodexo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Auxilio de Vivienda",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Auxilio de Vivienda",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Remuneración",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Total Remuneración",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": " CTC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " CTC",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -100,6 +438,368 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "No.",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Pais Cliente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Pais Cliente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Pais Facturación",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Pais Facturación",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Area",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Area",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cliente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cliente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RMCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RMCode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PMOCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PMOCode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "POU",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cost Center",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cost Center",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Project Name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Project Description",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rent Base Comercial",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rent Base Comercial",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rent Base Delivery",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rent Base Delivery",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rentabilidad",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rentabilidad",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jan",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jan",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Feb",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Feb",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Mar",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Mar",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Apr",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Apr",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "May",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "May",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jun",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jun",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jul",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jul",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Aug",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Aug",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sep",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sep",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Oct",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Oct",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nov",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nov",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Dic",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Dic",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Total H",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Total H",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Comentario",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Comentario",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -162,6 +862,320 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "S/N",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "S/N",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DM",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PMO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PMO",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Iniciales",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Iniciales",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cedula",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cedula",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nombre Usuario",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nombre Usuario",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Centro Costo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Centro Costo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Descripción  Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Descripción  Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Utilización",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Utilización",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Días Trabajados",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Días Trabajados",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CH/NCH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CH/NCH",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM1: Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM1: Proyecto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM2: Centro de Costo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM2: Centro de Costo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM3: Codigo  -LineaNegocio ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM3: Codigo  -LineaNegocio ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM4: Codigo - Cliente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM4: Codigo - Cliente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM5: Codigo - Pais  ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM5: Codigo - Pais  ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DIM6: Producto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DIM6: Producto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Budgeting Model",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Budgeting Model",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Metodología",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Metodología",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Línea Tecnológica",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Línea Tecnológica",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cloud",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cloud",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Tipo de Mercado",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tipo de Mercado",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Capacidades Requeridas",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Capacidades Requeridas",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Compañia",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Compañia",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
