@@ -634,7 +634,7 @@
 							{
 								"source": {
 									"name": "Jan",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -646,7 +646,7 @@
 							{
 								"source": {
 									"name": "Feb",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -658,7 +658,7 @@
 							{
 								"source": {
 									"name": "Mar",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -670,7 +670,7 @@
 							{
 								"source": {
 									"name": "Apr",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -682,7 +682,7 @@
 							{
 								"source": {
 									"name": "May",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -694,7 +694,7 @@
 							{
 								"source": {
 									"name": "Jun",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -706,7 +706,7 @@
 							{
 								"source": {
 									"name": "Jul",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -718,7 +718,7 @@
 							{
 								"source": {
 									"name": "Aug",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -730,7 +730,7 @@
 							{
 								"source": {
 									"name": "Sep",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -742,7 +742,7 @@
 							{
 								"source": {
 									"name": "Oct",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -754,7 +754,7 @@
 							{
 								"source": {
 									"name": "Nov",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -766,7 +766,7 @@
 							{
 								"source": {
 									"name": "Dic",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -822,7 +822,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"NOMBRE_ARCHIVO_PROYECCION": "Proyeccion_YYYYMMDD.xlsx"
+						}
 					}
 				]
 			},
