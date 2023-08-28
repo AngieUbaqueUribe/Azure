@@ -64,6 +64,368 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "No.",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Pais Cliente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Pais Cliente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Pais Facturación",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Pais Facturación",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Area",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Area",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cliente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cliente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OPR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RMCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RMCode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PMOCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PMOCode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "POU",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cost Center",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cost Center",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Project Name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Project Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Project Description",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rent Base Comercial",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rent Base Comercial",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rent Base Delivery",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rent Base Delivery",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rentabilidad",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rentabilidad",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jan",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jan",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Feb",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Feb",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Mar",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Mar",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Apr",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Apr",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "May",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "May",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jun",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jun",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Jul",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Jul",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Aug",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Aug",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sep",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sep",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Oct",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Oct",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nov",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nov",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Dic",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Dic",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Total H",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Total H",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Comentario",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Comentario",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -86,7 +448,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_PROYECCION_VALIDADA",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"NOMBRE_DS_PROYECCION": "Proyeccion_YYYYMMDD.xlsx.txt"
+						}
 					}
 				]
 			}
