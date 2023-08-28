@@ -22,6 +22,18 @@
 		"ls_fs_proyectoAngieUbaque_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "Angie"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA": {
+			"type": "string",
+			"defaultValue": "CoE12_Nomina.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION": {
+			"type": "string",
+			"defaultValue": "Proyeccion.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR": {
+			"type": "string",
+			"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
 		}
 	},
 	"variables": {
@@ -104,6 +116,368 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "No.",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "No.",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Pais Cliente",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Pais Cliente",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Pais Facturación",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Pais Facturación",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Area",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Area",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cliente",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cliente",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "OPR",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RMCode",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RMCode",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PMOCode",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PMOCode",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POU",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "POU",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Cost Center",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Cost Center",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Project Name",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Project Description",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Project Description",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Estado",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Estado",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rent Base Comercial",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rent Base Comercial",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rent Base Delivery",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rent Base Delivery",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Rentabilidad",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Rentabilidad",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jan",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jan",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Feb",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Feb",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Mar",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Mar",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Apr",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Apr",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "May",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "May",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jun",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jun",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jul",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Jul",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Aug",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Aug",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Sep",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Sep",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Oct",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Oct",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Nov",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Nov",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Dic",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Dic",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Total H",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Total H",
+											"type": "String",
+											"physicalType": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Comentario",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Comentario",
+											"type": "String",
+											"physicalType": "String"
+										}
+									}
+								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,
@@ -115,12 +489,7 @@
 							{
 								"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
 								"type": "DatasetReference",
-								"parameters": {
-									"NOMBRE_ARCHIVO_PROYECCION": {
-										"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
-										"type": "Expression"
-									}
-								}
+								"parameters": {}
 							}
 						],
 						"outputs": [
@@ -135,12 +504,6 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
-				},
-				"parameters": {
-					"NOMBRE_ARCHIVO_PROYECCION": {
-						"type": "string",
-						"defaultValue": "Proyeccion_YYYYMMDD.xlsx.txt"
-					}
 				},
 				"annotations": []
 			},
@@ -789,7 +1152,7 @@
 									{
 										"source": {
 											"name": "Jan",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -801,7 +1164,7 @@
 									{
 										"source": {
 											"name": "Feb",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -813,7 +1176,7 @@
 									{
 										"source": {
 											"name": "Mar",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -825,7 +1188,7 @@
 									{
 										"source": {
 											"name": "Apr",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -837,7 +1200,7 @@
 									{
 										"source": {
 											"name": "May",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -849,7 +1212,7 @@
 									{
 										"source": {
 											"name": "Jun",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -861,7 +1224,7 @@
 									{
 										"source": {
 											"name": "Jul",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -873,7 +1236,7 @@
 									{
 										"source": {
 											"name": "Aug",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -885,7 +1248,7 @@
 									{
 										"source": {
 											"name": "Sep",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -897,7 +1260,7 @@
 									{
 										"source": {
 											"name": "Oct",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -909,7 +1272,7 @@
 									{
 										"source": {
 											"name": "Nov",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -921,7 +1284,7 @@
 									{
 										"source": {
 											"name": "Dic",
-											"type": "String",
+											"type": "Double",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -1367,15 +1730,15 @@
 				"parameters": {
 					"NOMBRE_ARCHIVO_NOMINA": {
 						"type": "string",
-						"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+						"defaultValue": "CoE12_Nomina.xlsx"
 					},
 					"NOMBRE_ARCHIVO_PROYECCION": {
 						"type": "string",
-						"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+						"defaultValue": "Proyeccion.xlsx"
 					},
 					"NOMBRE_ARCHIVO_CCR": {
 						"type": "string",
-						"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+						"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
 					}
 				},
 				"annotations": [],
@@ -1391,6 +1754,156 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_MAESTRO')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "PL_BRONZE",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_COPYDATA_FILESYSTEM_TO_BRONZE",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {
+								"NOMBRE_ARCHIVO_NOMINA": {
+									"value": "@pipeline().parameters.NOMBRE_ARCHIVO_NOMINA",
+									"type": "Expression"
+								},
+								"NOMBRE_ARCHIVO_PROYECCION": {
+									"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
+									"type": "Expression"
+								},
+								"NOMBRE_ARCHIVO_CCR": {
+									"value": "@pipeline().parameters.NOMBRE_ARCHIVO_CCR",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					{
+						"name": "PL_SILVER",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "PL_BRONZE",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_BRONZE_TO_SILVER",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "PL_GOLD",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "PL_SILVER",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_SILVER_TO_GOLD_RENTABILIDAD",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_NOMINA": {
+						"type": "string",
+						"defaultValue": "CoE12_Nomina.xlsx"
+					},
+					"NOMBRE_ARCHIVO_PROYECCION": {
+						"type": "string",
+						"defaultValue": "CoE12_Nomina.xlsx"
+					},
+					"NOMBRE_ARCHIVO_CCR": {
+						"type": "string",
+						"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_COPYDATA_FILESYSTEM_TO_BRONZE')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_BRONZE_TO_SILVER')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_SILVER_TO_GOLD_RENTABILIDAD')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SILVER_TO_GOLD_RENTABILIDAD')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DataFlowRentabilidad",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "JOIN_CALCULO RENTABILIDAD",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SOURCEPROYECCIONVALIDADA": {},
+									"SOURCENOMINAPROYECTO": {},
+									"RentabilidadProyecto": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/JOIN_CALCULO RENTABILIDAD')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_CCR_TIME_TRACKER')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1402,7 +1915,7 @@
 				"parameters": {
 					"NOMBRE_ARCHIVO_CCR": {
 						"type": "string",
-						"defaultValue": "Report_UtilizacionTimeTracker_YYYYMMDD.xlsx"
+						"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
 					}
 				},
 				"folder": {
@@ -1445,7 +1958,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "Report_UtilizacionTimeTracker_20230824.xlsx.txt",
+						"fileName": "Report_UtilizacionTimeTracker.txt",
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -1477,7 +1990,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "CoE12_Nomina_20230824.xlsx.txt",
+						"fileName": "CoE12_Nomina.txt",
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -1501,12 +2014,6 @@
 					"referenceName": "ls_adls_proyecto_Angie",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"NOMBRE_ARCHIVO_PROYECCION": {
-						"type": "string",
-						"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
-					}
-				},
 				"folder": {
 					"name": "Azure Data Lake Bronze"
 				},
@@ -1515,10 +2022,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().NOMBRE_ARCHIVO_PROYECCION",
-							"type": "Expression"
-						},
+						"fileName": "Proyeccion.txt",
 						"folderPath": "Bronze",
 						"fileSystem": "datalake"
 					},
@@ -1545,7 +2049,7 @@
 				"parameters": {
 					"NOMBRE_ARCHIVO_NOMINA": {
 						"type": "string",
-						"defaultValue": "CoE12_Nomina_YYYYMMDD.xlsx"
+						"defaultValue": "CoE12_Nomina.xlsx"
 					}
 				},
 				"folder": {
@@ -1588,6 +2092,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "Nomina_Personal",
 						"folderPath": "Silver",
 						"fileSystem": "datalake"
 					},
@@ -1619,6 +2124,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "Nomina_Proyecto",
 						"folderPath": "Silver",
 						"fileSystem": "datalake"
 					},
@@ -1645,7 +2151,7 @@
 				"parameters": {
 					"NOMBRE_ARCHIVO_PROYECCION": {
 						"type": "string",
-						"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
+						"defaultValue": "Proyeccion.xlsx"
 					}
 				},
 				"folder": {
@@ -1778,7 +2284,40 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "Proyeccion_validada.txt",
 						"folderPath": "Silver",
+						"fileSystem": "datalake"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_proyecto_Angie')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_RENTABILIDAD_PROYECTOS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_proyecto_Angie",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Azure Data Lake Gold"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Rentabilidad_Proyectos.txt",
+						"folderPath": "Gold",
 						"fileSystem": "datalake"
 					},
 					"columnDelimiter": ",",
@@ -1859,6 +2398,40 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/TR_EJECUTAR_AUTOMATICO')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_MAESTRO",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"NOMBRE_ARCHIVO_NOMINA": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA')]",
+							"NOMBRE_ARCHIVO_PROYECCION": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION')]",
+							"NOMBRE_ARCHIVO_CCR": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-08-28T17:00:00",
+						"timeZone": "SA Pacific Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_MAESTRO')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/INTEGRATIONRUNTIME-ANGIE-UBAQUE')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -1867,6 +2440,136 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/JOIN_CALCULO RENTABILIDAD')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "DS_PROYECCION_VALIDADA",
+								"type": "DatasetReference"
+							},
+							"name": "SOURCEPROYECCIONVALIDADA"
+						},
+						{
+							"dataset": {
+								"referenceName": "DS_NOMINA_PROYECTO",
+								"type": "DatasetReference"
+							},
+							"name": "SOURCENOMINAPROYECTO"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "DS_RENTABILIDAD_PROYECTOS",
+								"type": "DatasetReference"
+							},
+							"name": "RentabilidadProyecto"
+						}
+					],
+					"transformations": [
+						{
+							"name": "join1"
+						},
+						{
+							"name": "Calcularrentabilidad"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          {No.} as string,",
+						"          {Pais Cliente} as string,",
+						"          {Pais Facturación} as string,",
+						"          Area as string,",
+						"          Cliente as string,",
+						"          OPR as string,",
+						"          RMCode as string,",
+						"          PMOCode as string,",
+						"          POU as string,",
+						"          {Cost Center} as string,",
+						"          {Project Name} as string,",
+						"          {Project Description} as string,",
+						"          Estado as string,",
+						"          {Rent Base Comercial} as boolean,",
+						"          {Rent Base Delivery} as boolean,",
+						"          Rentabilidad as string,",
+						"          Jan as decimal(10,0),",
+						"          Feb as decimal(10,0),",
+						"          Mar as decimal(10,0),",
+						"          Apr as decimal(10,0),",
+						"          May as decimal(10,0),",
+						"          Jun as decimal(10,0),",
+						"          Jul as decimal(10,0),",
+						"          Aug as decimal(10,0),",
+						"          Sep as decimal(10,0),",
+						"          Oct as decimal(10,0),",
+						"          Nov as decimal(10,0),",
+						"          Dic as decimal(10,0),",
+						"          {Total H} as string,",
+						"          Comentario as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SOURCEPROYECCIONVALIDADA",
+						"source(output(",
+						"          Proyecto as string,",
+						"          NOMINA as double",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SOURCENOMINAPROYECTO",
+						"SOURCEPROYECCIONVALIDADA, SOURCENOMINAPROYECTO join({Project Name} == Proyecto,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> join1",
+						"join1 derive(Rentabilidad = toDecimal(((Aug-NOMINA)/Aug)*100, 10, 2)) ~> Calcularrentabilidad",
+						"Calcularrentabilidad sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     partitionFileNames:['Rentabilidad_Proyectos.csv'],",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     mapColumn(",
+						"          {Pais Cliente},",
+						"          Area,",
+						"          Cliente,",
+						"          {Project Name},",
+						"          {Project Description},",
+						"          Estado,",
+						"          Aug,",
+						"          NOMINA,",
+						"          Rentabilidad,",
+						"          Jan,",
+						"          Feb,",
+						"          Mar,",
+						"          Apr,",
+						"          May,",
+						"          Jun,",
+						"          Jul,",
+						"          Sep,",
+						"          Oct,",
+						"          Nov,",
+						"          Dic,",
+						"          Proyecto",
+						"     ),",
+						"     partitionBy('hash', 1)) ~> RentabilidadProyecto"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_PROYECCION_VALIDADA')]",
+				"[concat(variables('factoryId'), '/datasets/DS_NOMINA_PROYECTO')]",
+				"[concat(variables('factoryId'), '/datasets/DS_RENTABILIDAD_PROYECTOS')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/JOIN_NOMINA')]",

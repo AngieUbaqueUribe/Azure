@@ -23,6 +23,18 @@
 			"type": "string",
 			"defaultValue": "Angie"
 		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA": {
+			"type": "string",
+			"defaultValue": "CoE12_Nomina.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION": {
+			"type": "string",
+			"defaultValue": "Proyeccion.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR": {
+			"type": "string",
+			"defaultValue": "Report_UtilizacionTimeTracker.xlsx"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -65,6 +77,35 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "WS-ADF-PROYECTO-FINAL-ANGIE-UBAQUE_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA": {
+						"value": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA')]"
+					},
+					"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION": {
+						"value": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION')]"
+					},
+					"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR": {
+						"value": "[parameters('TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'WS-ADF-PROYECTO-FINAL-ANGIE-UBAQUE_ArmTemplate_0')]"
+			]
 		}
 	]
 }

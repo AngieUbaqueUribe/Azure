@@ -17,6 +17,15 @@
 		"ls_fs_proyectoAngieUbaque_properties_typeProperties_userId": {
 			"value": "Angie"
 		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_NOMINA": {
+			"value": "CoE12_Nomina.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_PROYECCION": {
+			"value": "Proyeccion.xlsx"
+		},
+		"TR_EJECUTAR_AUTOMATICO_properties_PL_MAESTRO_parameters_NOMBRE_ARCHIVO_CCR": {
+			"value": "Report_UtilizacionTimeTracker.xlsx"
+		},
 		"containerUri": {
 			"value": ""
 		},
