@@ -1,0 +1,29 @@
+{
+	"name": "TR_EJECUTAR_AUTOMATICO",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_MAESTRO",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"NOMBRE_ARCHIVO_NOMINA": "CoE12_Nomina.xlsx",
+					"NOMBRE_ARCHIVO_PROYECCION": "Proyeccion.xlsx",
+					"NOMBRE_ARCHIVO_CCR": "Report_UtilizacionTimeTracker.xlsx"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-08-28T15:55:00",
+				"timeZone": "SA Pacific Standard Time"
+			}
+		}
+	}
+}
