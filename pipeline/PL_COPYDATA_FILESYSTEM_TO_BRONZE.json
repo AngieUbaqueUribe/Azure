@@ -822,13 +822,7 @@
 				"outputs": [
 					{
 						"referenceName": "DS_DATALAKE_PROYECCION_MENSUAL",
-						"type": "DatasetReference",
-						"parameters": {
-							"NOMBRE_ARCHIVO_PROYECCION": {
-								"value": "@pipeline().parameters.NOMBRE_ARCHIVO_PROYECCION",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},

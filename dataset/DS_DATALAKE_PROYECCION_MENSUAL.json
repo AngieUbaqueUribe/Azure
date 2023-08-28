@@ -5,12 +5,6 @@
 			"referenceName": "ls_adls_proyecto_Angie",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"NOMBRE_ARCHIVO_PROYECCION": {
-				"type": "string",
-				"defaultValue": "Proyeccion_YYYYMMDD.xlsx"
-			}
-		},
 		"folder": {
 			"name": "Azure Data Lake Bronze"
 		},

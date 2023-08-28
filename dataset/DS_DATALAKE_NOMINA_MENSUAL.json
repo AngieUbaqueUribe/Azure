@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "CoE12_Nomina.xlsx.txt",
+				"fileName": "CoE12_Nomina.txt",
 				"folderPath": "Bronze",
 				"fileSystem": "datalake"
 			},
