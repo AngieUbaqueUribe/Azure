@@ -366,7 +366,7 @@
 							{
 								"source": {
 									"name": "CTC",
-									"type": "String",
+									"type": "Double",
 									"physicalType": "String"
 								},
 								"sink": {
