@@ -1,0 +1,52 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DATALAKE_NOMINA_MENSUAL",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {S/N} as short,",
+				"          OPR as string,",
+				"          DM as string,",
+				"          PMO as string,",
+				"          Iniciales as string,",
+				"          Cedula as string,",
+				"          {Nombre Usuario} as string,",
+				"          {Centro Costo} as string,",
+				"          Proyecto as string,",
+				"          {Descripción  Proyecto} as string,",
+				"          {Utilización} as string,",
+				"          {Días Trabajados} as string,",
+				"          {CH/NCH} as string,",
+				"          {DIM1: Proyecto} as string,",
+				"          {DIM2: Centro de Costo} as string,",
+				"          {DIM3: Codigo  -LineaNegocio } as string,",
+				"          {DIM4: Codigo - Cliente} as string,",
+				"          {DIM5: Codigo - Pais  } as string,",
+				"          {DIM6: Producto} as string,",
+				"          {Budgeting Model} as string,",
+				"          {Metodología} as string,",
+				"          {Línea Tecnológica} as string,",
+				"          Cloud as string,",
+				"          {Tipo de Mercado} as string,",
+				"          {Capacidades Requeridas} as string,",
+				"          {Compañia} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1"
+			]
+		}
+	}
+}
