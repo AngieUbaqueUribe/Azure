@@ -34,6 +34,9 @@
 				},
 				{
 					"name": "Calcularrentabilidad"
+				},
+				{
+					"name": "convertircampo"
 				}
 			],
 			"scriptLines": [
@@ -61,7 +64,7 @@
 				"          May as decimal(10,0),",
 				"          Jun as decimal(10,0),",
 				"          Jul as decimal(10,0),",
-				"          Aug as decimal(10,0),",
+				"          Aug as string,",
 				"          Sep as decimal(10,0),",
 				"          Oct as decimal(10,0),",
 				"          Nov as decimal(10,0),",
@@ -79,12 +82,13 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SOURCENOMINAPROYECTO",
-				"SOURCEPROYECCIONVALIDADA, SOURCENOMINAPROYECTO join({Project Name} == Proyecto,",
+				"convertircampo, SOURCENOMINAPROYECTO join({Project Name} == Proyecto,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1",
 				"join1 derive(Rentabilidad = toDecimal(((Aug-NOMINA)/Aug)*100, 10, 2)) ~> Calcularrentabilidad",
+				"SOURCEPROYECCIONVALIDADA derive(Aug = toDecimal(replace(Aug,'.',','),10,2)) ~> convertircampo",
 				"Calcularrentabilidad sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['Rentabilidad_Proyectos.csv'],",
