@@ -74,7 +74,7 @@
 				"     ignoreNoFilesFound: false) ~> SOURCEPROYECCIONVALIDADA",
 				"source(output(",
 				"          Proyecto as string,",
-				"          NOMINA as double",
+				"          NOMINA as decimal(10,0)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
