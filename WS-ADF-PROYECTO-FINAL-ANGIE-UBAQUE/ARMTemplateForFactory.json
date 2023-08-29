@@ -2403,7 +2403,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -2421,10 +2421,9 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Day",
-						"interval": 1,
+						"interval": 365,
 						"startTime": "2023-08-28T17:30:00",
-						"timeZone": "SA Pacific Standard Time",
-						"schedule": {}
+						"timeZone": "SA Pacific Standard Time"
 					}
 				}
 			},
@@ -2520,7 +2519,7 @@
 						"     ignoreNoFilesFound: false) ~> SOURCEPROYECCIONVALIDADA",
 						"source(output(",
 						"          Proyecto as string,",
-						"          NOMINA as double",
+						"          NOMINA as decimal(10,0)",
 						"     ),",
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
@@ -2667,7 +2666,7 @@
 						"          {Centro Costo} as string,",
 						"          Proyecto as string,",
 						"          {Descripción  Proyecto} as string,",
-						"          {Utilización} as integer,",
+						"          {Utilización} as string,",
 						"          {Días Trabajados} as string,",
 						"          {CH/NCH} as string,",
 						"          {DIM1: Proyecto} as string,",
@@ -2692,7 +2691,7 @@
 						"     matchType:'exact',",
 						"     ignoreSpaces: false,",
 						"     broadcast: 'auto')~> JNNOMINAXCCR",
-						"JNNOMINAXCCR derive(SUELDO_CALCULADO = (CTC*{Utilización})/100) ~> CALCULARSUELDO",
+						"JNNOMINAXCCR derive(SUELDO_CALCULADO = toDecimal(((CTC*toDecimal(replace({Utilización},',','.'),10,2))/100),15,2)) ~> CALCULARSUELDO",
 						"CALCULARSUELDO aggregate(groupBy(Proyecto),",
 						"     NOMINA = sum(SUELDO_CALCULADO)) ~> CALCULARNOMINAPROYECTO",
 						"CALCULARSUELDO sink(allowSchemaDrift: true,",
